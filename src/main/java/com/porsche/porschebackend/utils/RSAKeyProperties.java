@@ -3,7 +3,9 @@ package com.porsche.porschebackend.utils;
 import java.security.KeyPair;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RSAKeyProperties {
 
     private RSAPublicKey publicKey;
