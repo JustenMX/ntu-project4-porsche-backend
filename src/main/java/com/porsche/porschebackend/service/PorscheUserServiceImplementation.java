@@ -12,10 +12,12 @@ import org.springframework.stereotype.Service;
 import com.porsche.porschebackend.dao.PorscheUserAuthRepository;
 import com.porsche.porschebackend.dao.PorscheUserRepository;
 import com.porsche.porschebackend.dao.RoleRepository;
+import com.porsche.porschebackend.dto.PorscheUserDto;
 import com.porsche.porschebackend.dto.PorscheUserRegDto;
 import com.porsche.porschebackend.entity.PorscheUser;
 import com.porsche.porschebackend.entity.PorscheUserAuth;
 import com.porsche.porschebackend.entity.Role;
+import com.porsche.porschebackend.exception.PorscheUserNotFoundException;
 
 import lombok.AllArgsConstructor;
 
@@ -82,27 +84,24 @@ public class PorscheUserServiceImplementation implements PorscheUserService {
     public PorscheUser getUser(Long id) {
         PorscheUser porscheUser = porscheUserRepository.findById(id)
                 .orElseThrow(() -> new PorscheUserNotFoundException(id));
-        logger.info("Retrieved user [ID: {}, Name: {}] successfully", springUser.getId(), springUser.getFirstName());
-        return springUser;
+        logger.info("Retrieved user [ID: {}, Name: {}] successfully", porscheUser.getId(), porscheUser.getName());
+        return porscheUser;
     }
 
     /**
      * UPDATE USER
      */
     @Override
-    public SpringUser updateUser(Long id, SpringUserDto springUserDto) {
-        SpringUser updateUser = springUserRepository.findById(id)
-                .orElseThrow(() -> new SpringUserNotFoundException(id));
-        updateUser.setEmail(springUserDto.getEmail());
-        updateUser.setPassword(springUserDto.getPassword());
-        updateUser.setFirstName(springUserDto.getFirstName());
-        updateUser.setLastName(springUserDto.getLastName());
-        updateUser.setAddress(springUserDto.getAddress());
-        updateUser.setPostalCode(springUserDto.getPostalCode());
-        updateUser.setUnitNo(springUserDto.getUnitNo());
-        updateUser.setOptMarketing(springUserDto.isOptMarketing());
-        updateUser.setJoinDate(springUserDto.getJoinDate());
-        logger.info("Updated user [ID: {}, Name: {} {}]", updateUser.getId(), updateUser.getFirstName());
+    public PorscheUser updateUser(Long id, PorscheUserDto porscheUserDto) {
+        PorscheUser updateUser = porscheUserRepository.findById(id)
+                .orElseThrow(() -> new PorscheUserNotFoundException(id));
+        updateUser.setEmail(porscheUserDto.getEmail());
+        updateUser.setPassword(porscheUserDto.getPassword());
+        updateUser.setName(porscheUserDto.getName());
+        updateUser.setPorscheModel(porscheUserDto.getPorscheModel());
+        updateUser.setOptMarketing(porscheUserDto.isOptMarketing());
+        updateUser.setJoinDate(porscheUserDto.getJoinDate());
+        logger.info("Updated user [ID: {}, Name: {} {}]", updateUser.getId(), updateUser.getName());
         return updateUser;
     }
 
@@ -112,7 +111,7 @@ public class PorscheUserServiceImplementation implements PorscheUserService {
     @Override
     public void deleteUser(Long id) {
         logger.info("Deleted user with ID: {}", id);
-        springUserRepository.deleteById(id);
+        porscheUserRepository.deleteById(id);
     }
 
 }
