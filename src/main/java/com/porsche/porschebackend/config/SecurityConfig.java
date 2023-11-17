@@ -51,8 +51,8 @@ public class SecurityConfig {
         return http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> {
-                    auth.requestMatchers("/springmart/api/user/register").permitAll();
-                    auth.requestMatchers("/springmart/api/authentication/login").permitAll();
+                    auth.requestMatchers("/porschesg/api/user/register").permitAll();
+                    auth.requestMatchers("/porschesg/api/authentication/login").permitAll();
                     // auth.requestMatchers("/springmart/api/**").permitAll();
                     auth.anyRequest().authenticated();
                 })

@@ -19,7 +19,7 @@ import com.porsche.porschebackend.service.PorscheUserAuthService;
 
 import lombok.AllArgsConstructor;
 
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "*")
 @RestController
 @AllArgsConstructor
 @RequestMapping("/porschesg/api/authentication")

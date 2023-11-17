@@ -48,6 +48,10 @@ public class PorscheUser {
     @NotNull(message = "Name is required")
     private String name;
 
+    @Column(name = "vehicleNo", nullable = false)
+    @NotNull(message = "vehicleNo is required")
+    private String vehicleNo;
+
     @Column(name = "porsche_model", nullable = false)
     @NotNull(message = "Vehicle model is required")
     @Enumerated(EnumType.STRING)
