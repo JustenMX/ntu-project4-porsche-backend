@@ -20,9 +20,9 @@ services:
     ports:
       - 5432:5432
     environment:
-      POSTGRES_USER: justen
-      POSTGRES_PASSWORD: OzCq4KoMRSzgvGAn
-      POSTGRES_DB: porsche
+      - POSTGRES_USER=justen
+      - POSTGRES_PASSWORD=OzCq4KoMRSzgvGAn
+      - POSTGRES_DB=porsche
     volumes:
       - pgdata:/var/lib/postgresql/data
 

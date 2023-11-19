@@ -6,5 +6,5 @@ RUN mvn -B -DskipTests clean package
 FROM openjdk:17.0
 WORKDIR /app
 COPY --from=maven-build /app/target/porsche-backend-0.0.1-SNAPSHOT.jar ./porsche-backend.jar
-EXPOSE 9090
+EXPOSE 9091
 CMD ["java", "-jar", "porsche-backend.jar"]
