@@ -8,7 +8,7 @@ services:
     ports:
       - 9090:9090
     environment:
-      - DATABASE_URL=jdbc:postgresql://psql-db:5432/springmart
+      - DATABASE_URL=jdbc:postgresql://psql-db:5432/porsche
       - DATABASE_USERNAME=justen
     depends_on:
       - psql-db
@@ -22,7 +22,7 @@ services:
     environment:
       POSTGRES_USER: justen
       POSTGRES_PASSWORD: OzCq4KoMRSzgvGAn
-      POSTGRES_DB: springmart
+      POSTGRES_DB: porsche
     volumes:
       - pgdata:/var/lib/postgresql/data
 
