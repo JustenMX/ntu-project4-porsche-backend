@@ -36,6 +36,7 @@ public class PorscheUserServiceImplementation implements PorscheUserService {
         porscheUser.setEmail(porscheUserRegDto.getEmail());
         porscheUser.setPassword(porscheUserRegDto.getPassword());
         porscheUser.setName(porscheUserRegDto.getName());
+        porscheUser.setVehicleNo(porscheUserRegDto.getVehicleNo());
         porscheUser.setPorscheModel(porscheUserRegDto.getPorscheModel());
         porscheUser.setOptMarketing(porscheUserRegDto.isOptMarketing());
         porscheUser.setJoinDate(porscheUserRegDto.getJoinDate());
@@ -98,6 +99,7 @@ public class PorscheUserServiceImplementation implements PorscheUserService {
         updateUser.setEmail(porscheUserDto.getEmail());
         updateUser.setPassword(porscheUserDto.getPassword());
         updateUser.setName(porscheUserDto.getName());
+        updateUser.setVehicleNo(porscheUserDto.getVehicleNo());
         updateUser.setPorscheModel(porscheUserDto.getPorscheModel());
         updateUser.setOptMarketing(porscheUserDto.isOptMarketing());
         updateUser.setJoinDate(porscheUserDto.getJoinDate());

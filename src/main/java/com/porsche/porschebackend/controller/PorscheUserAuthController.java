@@ -22,7 +22,7 @@ import lombok.AllArgsConstructor;
 @CrossOrigin(origins = "*")
 @RestController
 @AllArgsConstructor
-@RequestMapping("/porschesg/api/authentication")
+@RequestMapping("/porsche/api/authentication")
 public class PorscheUserAuthController {
 
     private PorscheUserAuthService porscheUserAuthService;

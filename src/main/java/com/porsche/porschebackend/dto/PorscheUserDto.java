@@ -16,6 +16,7 @@ public class PorscheUserDto {
     private String email;
     private String password;
     private String name;
+    private String vehicleNo;
     private PorscheModel porscheModel;
     private boolean optMarketing;
     private LocalDate joinDate;

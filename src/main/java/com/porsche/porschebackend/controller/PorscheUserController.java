@@ -21,10 +21,10 @@ import com.porsche.porschebackend.service.PorscheUserServiceImplementation;
 
 import lombok.AllArgsConstructor;
 
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "*")
 @RestController
 @AllArgsConstructor
-@RequestMapping("/porschesg/api/user")
+@RequestMapping("/porsche/api/user")
 public class PorscheUserController {
 
     private PorscheUserServiceImplementation porscheUserService;

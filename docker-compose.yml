@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  java_app:
+    container_name: porsche-backend
+    image: springmart-backend
+    build: .
+    ports:
+      - 9090:9090
+    environment:
+      - DATABASE_URL=jdbc:postgresql://psql-db:5432/springmart
+      - DATABASE_USERNAME=justen
+    depends_on:
+      - psql-db
+
+  psql-db:
+    container_name: psql-db
+    image: postgres:16
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: justen
+      POSTGRES_PASSWORD: OzCq4KoMRSzgvGAn
+      POSTGRES_DB: springmart
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata: {}
