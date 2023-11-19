@@ -3,18 +3,18 @@ version: '3.9'
 services:
   java_app:
     container_name: porsche-backend
-    image: springmart-backend
+    image: porsche-backend
     build: .
     ports:
-      - 9090:9090
+      - 9091:9091
     environment:
-      - DATABASE_URL=jdbc:postgresql://psql-db:5432/porsche
+      - DATABASE_URL=jdbc:postgresql://porsche-psql-db:5432/porsche
       - DATABASE_USERNAME=justen
     depends_on:
       - psql-db
 
   psql-db:
-    container_name: psql-db
+    container_name: porsche-psql-db
     image: postgres:16
     restart: always
     ports:
